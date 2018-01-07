@@ -1,4 +1,4 @@
-def parse_menus_data(menus_info):
+def parse_menus_data(menus_info={}):
 	products = {}
 	root_ids = []
 

@@ -37,7 +37,7 @@ def dfs_find_products_in_menu_tree(root_id, products):
 	return menu, is_invalid_menu
 
 
-def validate_menus(products, root_ids):
+def validate_menus(root_ids, products):
 	valid_menus = []
 	invalid_menus = []
 	for root_id in root_ids:

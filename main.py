@@ -46,5 +46,5 @@ menus_info = {
 
 if __name__ == '__main__':
 	products, root_ids = menus.parse_menus_data(menus_info)
-	valid_menus, invalid_menus = menus.validate_menus(products, root_ids)
+	valid_menus, invalid_menus = menus.validate_menus(root_ids, products)
 	print(menus.render_aggregate_menus_json(valid_menus, invalid_menus))
