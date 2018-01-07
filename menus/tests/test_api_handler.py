@@ -1,7 +1,7 @@
 import unittest
 import menus
 
-class TestParseMenuData(unittest.TestCase):
+class TestParseMenusData(unittest.TestCase):
 
     def test_valid_empty_menu_info(self):
         menus_info = {
@@ -97,3 +97,40 @@ class TestParseMenuData(unittest.TestCase):
         menus_info = ['not correctly formatted object']
         with self.assertRaises(TypeError):
             products, root_ids = menus.parse_menus_data(menus_info)
+
+# Add mocks
+class TestFetchMenusData(unittest.TestCase):
+
+	def test_many_pages(self):
+		pass
+
+	def test_empty_page(self):
+		pass
+
+	def test_one_page(self):
+		pass
+
+	def test_http_error(self):
+		pass
+
+class TestConstructMenusUrl(unittest.TestCase):
+
+	def test_valid_page_and_id(self):
+		pass
+
+	def test_no_args_provided(self):
+		pass
+
+	def test_page_arg_provided_only(self):
+		pass
+
+	def test_id_arg_provided_only(self):
+		pass
+
+	def test_invalid_page(self):
+		pass
+
+	def test_invalid_id(self):
+
+
+
