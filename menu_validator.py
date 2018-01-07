@@ -43,13 +43,20 @@ menus_info = {
 }
 
 def dfs_find_products_in_tree(root_id, products):
-	# Check max depth of 4 too.
 	stack = [root_id]
+	curr_depth = 0
 	visited_product_ids = {}
 	is_invalid_menu = False
 
 	while len(stack) > 0:
-		curr_product_id = stack.pop()
+		item = stack.pop()
+		if type(item) is dict:
+			curr_depth = item['depth_level']
+			if curr_depth > 4:
+				is_invalid_menu = True
+			continue
+
+		curr_product_id = item
 		curr_product = products[curr_product_id]
 		visited_product_ids[curr_product_id] = True
 
@@ -60,16 +67,16 @@ def dfs_find_products_in_tree(root_id, products):
 				stack.append(child_id)
 			else:
 				is_invalid_menu = True
+				visited_product_ids[child_id] = True
+		stack.append({ 'depth_level': curr_depth+1 })
+
 	menu = {
 		'root_id': root_id,
-		'children': []
+		'children': [product_id for product_id in visited_product_ids]
 	}
 
-	for product_id in visited_product_ids:
-		if is_invalid_menu:
-			menu['children'].append(product_id)
-		elif product_id != root_id:
-			menu['children'].append(product_id)
+	if not is_invalid_menu and root_id in menu['children']:
+		menu['children'].remove(root_id)
 
 	return menu, is_invalid_menu
 
