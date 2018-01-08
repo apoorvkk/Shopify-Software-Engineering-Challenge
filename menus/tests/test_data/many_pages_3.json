@@ -1,0 +1,1 @@
+{"menus":[{"id":11,"data":"HR","parent_id":2,"child_ids":[]},{"id":12,"data":"Computer","child_ids":[13,14,15]},{"id":13,"data":"CPU","parent_id":12,"child_ids":[]},{"id":14,"data":"Motherboard","parent_id":12,"child_ids":[]},{"id":15,"data":"Peripherals","parent_id":12,"child_ids":[16,17,21]}],"pagination":{"current_page":3,"per_page":5,"total":21}}
