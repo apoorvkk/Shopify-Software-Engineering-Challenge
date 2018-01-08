@@ -20,7 +20,9 @@ def dfs_find_products_in_menu_tree(root_id, products):
             if child_id == root_id:
                 is_root_supposed_child = True
 
-            if 'parent_id' in child_product and child_product['parent_id'] == curr_product_id and child_id not in visited_product_ids:
+            if ('parent_id' in child_product and
+                    child_product['parent_id'] == curr_product_id and
+                    child_id not in visited_product_ids):
                 stack.append((child_id, curr_depth + 1))
             else:
                 is_invalid_menu = True
