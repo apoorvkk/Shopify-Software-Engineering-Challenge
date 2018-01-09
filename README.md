@@ -68,7 +68,7 @@ pip install -r requirements.txt
 **Note**: If `pip` does not work, please try `pip3`.
 ## Command Line Interface Version
 ### Running the Application
-Locate yourself inside the root of `Shopify-Software-Engineering-Challenge/` `git` repository if not done already. Ensure you are inside your virtual environment (see [Common Installation and Setup](common-installation-and-setup))
+Locate yourself inside the root of `Shopify-Software-Engineering-Challenge/` `git` repository if not done already. Ensure you are inside your virtual environment (see [Common Installation and Setup](#common-installation-and-setup))
 
 Run the command below:
 ```
@@ -86,6 +86,12 @@ Run the command below:
 python -m unittest discover
 ```
 **Note:** You might need to use `python3` command if `python` does not work.
+
+### Linting the Application
+The application follows the PEP8 standard. Please run the command below:
+```
+flake8
+```
 
 ## Web Application Version
 TODO.
