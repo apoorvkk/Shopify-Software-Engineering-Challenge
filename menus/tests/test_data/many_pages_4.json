@@ -1,0 +1,41 @@
+{
+  "menus": [
+    {
+      "id": 16,
+      "data": "Mouse",
+      "parent_id": 15,
+      "child_ids": []
+    },
+    {
+      "id": 17,
+      "data": "Keyboard",
+      "parent_id": 15,
+      "child_ids": []
+    },
+    {
+      "id": 18,
+      "data": "Chair",
+      "parent_id": 3,
+      "child_ids": []
+    },
+    {
+      "id": 19,
+      "data": "Table",
+      "parent_id": 4,
+      "child_ids": []
+    },
+    {
+      "id": 20,
+      "data": "Pad",
+      "parent_id": 7,
+      "child_ids": [
+        1
+      ]
+    }
+  ],
+  "pagination": {
+    "current_page": 4,
+    "per_page": 5,
+    "total": 21
+  }
+}
