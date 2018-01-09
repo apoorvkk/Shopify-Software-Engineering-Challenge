@@ -1,1 +1,1 @@
-web: gunicorn webapp/MenuValidatorBackend/MenuValidatorBackend.wsgi:app
+web: gunicorn --pythonpath webapp/MenuValidatorBackend MenuValidatorBackend.wsgi
