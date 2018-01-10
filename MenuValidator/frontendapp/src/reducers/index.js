@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
+
 import processedMenus from './reducer-processed-menus';
+
 const rootReducer = combineReducers({
-	processedMenus
+  processedMenus
 });
 
 export default rootReducer;
