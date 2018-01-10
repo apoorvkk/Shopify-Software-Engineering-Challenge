@@ -1,5 +1,5 @@
 # Shopify Summer Internship Coding Challenge 2018
-[![Build Status](https://travis-ci.com/apoorvkk/Shopify-Software-Engineering-Challenge.svg?token=7za4HVGA8yu8XhiNzTJy&branch=feature-menu-validator)](https://travis-ci.com/apoorvkk/Shopify-Software-Engineering-Challenge)
+[![Build Status](https://travis-ci.com/apoorvkk/Shopify-Software-Engineering-Challenge.svg?token=7za4HVGA8yu8XhiNzTJy&branch=master)](https://travis-ci.com/apoorvkk/Shopify-Software-Engineering-Challenge)
 ## Summary
 
 TODO: add web application photos here.
