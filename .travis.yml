@@ -8,5 +8,6 @@ before_install:
 script:
   echo "Runing linter...";
   flake8;
-  echo "Running unit tests";
-  python3 -m unittest discover;
+  echo "Running unit tests for command line application...";
+  cd MenuValidator/cli/;
+  python3 -m unittest discover menus/;

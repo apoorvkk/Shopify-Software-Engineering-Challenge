@@ -1,4 +1,5 @@
 # Shopify Summer Internship Coding Challenge 2018
+[![Build Status](https://travis-ci.com/apoorvkk/Shopify-Software-Engineering-Challenge.svg?token=7za4HVGA8yu8XhiNzTJy&branch=feature-menu-validator)](https://travis-ci.com/apoorvkk/Shopify-Software-Engineering-Challenge)
 ## Summary
 
 TODO: add web application photos here.
@@ -68,10 +69,11 @@ pip install -r requirements.txt
 **Note**: If `pip` does not work, please try `pip3`.
 ## Command Line Interface Version
 ### Running the Application
-Locate yourself inside the root of `Shopify-Software-Engineering-Challenge/` `git` repository if not done already. Ensure you are inside your virtual environment (see [Common Installation and Setup](common-installation-and-setup))
+Locate yourself inside the root of `Shopify-Software-Engineering-Challenge/` `git` repository if not done already. Ensure you are inside your virtual environment (see [Common Installation and Setup](#common-installation-and-setup)).
 
-Run the command below:
+Run the commands below:
 ```
+cd MenuValidator/cli/
 python main.py
 ```
 **Note:** You might need to use `python3` command if `python` does not work.
@@ -79,13 +81,23 @@ python main.py
 You will be prompted to provide the `problem id` so input the selected problem of choice. As it stands from `09/01/18`, there are currently two different problems (`id=1` for the standard challenge and `id=2` for the extra challenge).
 
 ### Testing the Application
-Locate yourself inside the root of `Shopify-Software-Engineering-Challenge/` `git` repository if not done already. Ensure you are inside your virtual environment (see [Common Installation and Setup](common-installation-and-setup))
+Locate yourself inside the root of `Shopify-Software-Engineering-Challenge/` `git` repository if not done already. Ensure you are inside your virtual environment (see [Common Installation and Setup](#common-installation-and-setup)).
 
-Run the command below:
+Run the commands below:
 ```
-python -m unittest discover
+cd MenuValidator/cli/
+python -m unittest discover menus/
 ```
 **Note:** You might need to use `python3` command if `python` does not work.
+
+### Linting the Application
+Locate yourself inside the root of `Shopify-Software-Engineering-Challenge/` `git` repository if not done already. Ensure you are inside your virtual environment (see [Common Installation and Setup](#common-installation-and-setup)).
+
+The application follows the PEP8 standard. Please run the commands below:
+```
+cd MenuValidator/cli/
+flake8
+```
 
 ## Web Application Version
 TODO.
