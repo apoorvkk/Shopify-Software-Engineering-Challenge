@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReactJson from 'react-json-view';
+import JSONPretty from 'react-json-pretty';
 
 import {
   MENUS_REQUEST_PENDING,
@@ -24,7 +24,7 @@ class MenusSolution extends Component {
         </div>
       );
     }
-    return (<ReactJson src={this.showResponseData()} theme="shapeshifter:inverted" name={false} />);
+    return (<JSONPretty id="json-pretty" style={{border: '1px solid black', 'background-color': 'white'}} json={this.showResponseData()}></JSONPretty>);
   }
 }
 
