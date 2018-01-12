@@ -6,8 +6,8 @@ before_install:
   - pip3 install -r requirements.txt
 
 script:
-  echo "Runing linter...";
-  flake8;
+  echo "Running linter...";
+  flake8 --exclude=*/frontendapp/*;
   echo "Running unit tests for command line application...";
   cd MenuValidator/cli/;
   python3 -m unittest discover menus/;
