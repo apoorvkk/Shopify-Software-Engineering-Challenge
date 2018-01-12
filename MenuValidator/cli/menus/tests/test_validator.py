@@ -7,7 +7,6 @@ from menus.validator import dfs_find_products_in_menu_tree
 
 @mock.patch('menus.validator.dfs_find_products_in_menu_tree')
 class TestValidateMenus(unittest.TestCase):
-
     def test_calls_dfs_find_products_in_menu_tree(self, mock_dfs):
         products = {
             2: {
@@ -31,6 +30,7 @@ class TestValidateMenus(unittest.TestCase):
         root_ids = [2]
         mock_dfs.return_value = ({}, True)
         menus.validate_menus(root_ids, products)
+
         mock_dfs.assert_called_with(2, products)
 
     def test_valid_menus_only(self, mock_dfs):
@@ -54,7 +54,6 @@ class TestValidateMenus(unittest.TestCase):
             }
         }
         root_ids = [2]
-
         valid_menu = {
             'root_id': 2,
             'children': [4, 6]
@@ -62,6 +61,7 @@ class TestValidateMenus(unittest.TestCase):
         mock_dfs.return_value = (valid_menu, False)
         expected_valid_menus = [{"root_id": 2, "children": [4, 6]}]
         valid_menus, invalid_menus = menus.validate_menus(root_ids, products)
+
         self.assertEqual(invalid_menus, [])
         self.assertEqual(valid_menus, expected_valid_menus)
 
@@ -86,7 +86,6 @@ class TestValidateMenus(unittest.TestCase):
             }
         }
         root_ids = [2]
-
         invalid_menu = {
             'root_id': 2,
             'children': [2, 4, 6]
@@ -94,6 +93,7 @@ class TestValidateMenus(unittest.TestCase):
         mock_dfs.return_value = (invalid_menu, True)
         expected_valid_menus = [{"root_id": 2, "children": [2, 4, 6]}]
         valid_menus, invalid_menus = menus.validate_menus(root_ids, products)
+
         self.assertEqual(valid_menus, [])
         self.assertEqual(invalid_menus, expected_valid_menus)
 
@@ -135,7 +135,6 @@ class TestValidateMenus(unittest.TestCase):
             }
         }
         root_ids = [1, 2]
-
         returned_menus = [
             {
                 'root_id': 1,
@@ -151,16 +150,19 @@ class TestValidateMenus(unittest.TestCase):
         expected_valid_menus = [{"root_id": 2, "children": [4, 6]}]
         expected_invalid_menus = [{"root_id": 1, "children": [1, 3, 5]}]
         valid_menus, invalid_menus = menus.validate_menus(root_ids, products)
+
         self.assertEqual(valid_menus, expected_valid_menus)
         self.assertEqual(invalid_menus, expected_invalid_menus)
 
     def test_invalid_root_ids(self, mock_dfs):
         mock_dfs.side_effect = KeyError
+
         with self.assertRaises(KeyError):
             menus.validate_menus([1, 1000], {})
 
     def test_no_root_ids(self, mock_dfs):
         valid_menus, invalid_menus = menus.validate_menus([], {})
+
         self.assertEqual(valid_menus, [])
         self.assertEqual(invalid_menus, [])
 
@@ -187,11 +189,11 @@ class TestDFSFindProductsInMenuTree(unittest.TestCase):
             }
         }
         menu, is_invalid_menu = dfs_find_products_in_menu_tree(2, products)
-
         expected_menu = {
             'root_id': 2,
             'children': [4, 6]
         }
+
         self.assertEqual(is_invalid_menu, False)
         self.assertEqual(menu, expected_menu)
 
@@ -221,11 +223,11 @@ class TestDFSFindProductsInMenuTree(unittest.TestCase):
             }
         }
         menu, is_invalid_menu = dfs_find_products_in_menu_tree(2, products)
-
         expected_menu = {
             'root_id': 2,
             'children': [4, 8]
         }
+
         self.assertEqual(is_invalid_menu, True)
         self.assertEqual(menu, expected_menu)
 
@@ -255,11 +257,11 @@ class TestDFSFindProductsInMenuTree(unittest.TestCase):
             }
         }
         menu, is_invalid_menu = dfs_find_products_in_menu_tree(7, products)
-
         expected_menu = {
             'root_id': 7,
             'children': [8]
         }
+
         self.assertEqual(is_invalid_menu, False)
         self.assertEqual(menu, expected_menu)
 
@@ -284,11 +286,11 @@ class TestDFSFindProductsInMenuTree(unittest.TestCase):
             }
         }
         menu, is_invalid_menu = dfs_find_products_in_menu_tree(2, products)
-
         expected_menu = {
             'root_id': 2,
             'children': [2, 4, 6]
         }
+
         self.assertEqual(is_invalid_menu, True)
         self.assertEqual(menu, expected_menu)
 
@@ -318,6 +320,7 @@ class TestDFSFindProductsInMenuTree(unittest.TestCase):
             'root_id': 2,
             'children': [4, 6]
         }
+
         self.assertEqual(is_invalid_menu, True)
         self.assertEqual(menu, expected_menu)
 
@@ -354,11 +357,11 @@ class TestDFSFindProductsInMenuTree(unittest.TestCase):
             }
         }
         menu, is_invalid_menu = dfs_find_products_in_menu_tree(2, products)
-
         expected_menu = {
             'root_id': 2,
             'children': [4, 6, 7, 5]
         }
+
         self.assertEqual(is_invalid_menu, False)
         self.assertEqual(menu, expected_menu)
 
@@ -401,11 +404,11 @@ class TestDFSFindProductsInMenuTree(unittest.TestCase):
             }
         }
         menu, is_invalid_menu = dfs_find_products_in_menu_tree(2, products)
-
         expected_menu = {
             'root_id': 2,
             'children': [4, 6, 7, 5, 10]
         }
+
         self.assertEqual(is_invalid_menu, True)
         self.assertEqual(menu, expected_menu)
 

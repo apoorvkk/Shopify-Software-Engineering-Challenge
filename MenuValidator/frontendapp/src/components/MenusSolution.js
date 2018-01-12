@@ -24,7 +24,7 @@ class MenusSolution extends Component {
         </div>
       );
     }
-    return (<JSONPretty id="json-pretty" style={{border: '1px solid black', 'background-color': 'white'}} json={this.showResponseData()}></JSONPretty>);
+    return (<JSONPretty id="json-pretty" style={{border: '1px solid black', backgroundColor: 'white'}} json={this.showResponseData()}></JSONPretty>);
   }
 }
 
