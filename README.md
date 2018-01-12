@@ -1,5 +1,5 @@
 # ![alt text](images/favicon.ico) Shopify Summer Internship Coding Challenge 2018
-[![Build Status](https://travis-ci.com/apoorvkk/Shopify-Software-Engineering-Challenge.svg?token=7za4HVGA8yu8XhiNzTJy&branch=master)](https://travis-ci.com/apoorvkk/Shopify-Software-Engineering-Challenge)
+[![Build Status](https://travis-ci.org/apoorvkk/Shopify-Software-Engineering-Challenge.svg?branch=master)](https://travis-ci.org/apoorvkk/Shopify-Software-Engineering-Challenge.svg?branch=master)
 
 ![alt text](images/website.png)
 
