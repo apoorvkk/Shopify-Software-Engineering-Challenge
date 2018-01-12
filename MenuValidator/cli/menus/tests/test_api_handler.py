@@ -8,7 +8,6 @@ from menus.api_handler import construct_menus_url
 
 
 class TestParseMenusData(unittest.TestCase):
-
     def test_valid_empty_menu_info(self):
         menus_info = {
             'menus': []
@@ -28,7 +27,6 @@ class TestParseMenusData(unittest.TestCase):
                 }
             ]
         }
-
         products, root_ids = menus.parse_menus_data(menus_info)
 
         self.assertEqual(
@@ -92,9 +90,8 @@ class TestParseMenusData(unittest.TestCase):
         self.assertEqual(root_ids, [1, 2])
 
     def test_invalid_empty_menu_info(self):
-        menus_info = {}
         with self.assertRaises(KeyError):
-            products, root_ids = menus.parse_menus_data(menus_info)
+            products, root_ids = menus.parse_menus_data({})
 
     def test_no_supplied_menu_info(self):
         with self.assertRaises(KeyError):
@@ -104,25 +101,25 @@ class TestParseMenusData(unittest.TestCase):
         menus_info = {
             'not a menu': 'random'
         }
+
         with self.assertRaises(KeyError):
             products, root_ids = menus.parse_menus_data(menus_info)
 
     def test_invalid_existing_menu_info_invalid_object(self):
         menus_info = ['not correctly formatted object']
+
         with self.assertRaises(TypeError):
             products, root_ids = menus.parse_menus_data(menus_info)
 
 
 @mock.patch('requests.get')
 class TestFetchMenusData(unittest.TestCase):
-
     def setUp(self):
         self.api_menu_data = []
         for i in range(1, 6):
             file = open(f'menus/tests/test_data/many_pages_{i}.json')
             self.api_menu_data.append(json.load(file))
             file.close()
-
         file = open('menus/tests/test_data/expected_many_pages.json')
         self.api_expected_menu_data = json.load(file)
         file.close()
@@ -132,6 +129,7 @@ class TestFetchMenusData(unittest.TestCase):
         mock_get.return_value.raise_for_status = Mock()
         mock_get.return_value.json.side_effect = self.api_menu_data
         menus_info = menus.fetch_menus_data()
+
         self.assertEqual(menus_info, self.api_expected_menu_data)
 
     def test_many_pages(self, mock_get):
@@ -139,6 +137,7 @@ class TestFetchMenusData(unittest.TestCase):
         mock_get.return_value.raise_for_status = Mock()
         mock_get.return_value.json.side_effect = self.api_menu_data
         menus_info = menus.fetch_menus_data(problem_id=1)
+
         self.assertEqual(menus_info, self.api_expected_menu_data)
 
     def test_empty_page(self, mock_get):
@@ -150,8 +149,8 @@ class TestFetchMenusData(unittest.TestCase):
         file = open('menus/tests/test_data/expected_empty_page.json')
         expected_empty_page = json.load(file)
         file.close()
-
         menus_info = menus.fetch_menus_data(problem_id=1)
+
         self.assertEqual(menus_info, expected_empty_page)
 
     def test_one_page(self, mock_get):
@@ -171,6 +170,7 @@ class TestFetchMenusData(unittest.TestCase):
     def test_http_error(self, mock_get):
         mock_get.return_value.raise_for_status.side_effect = \
             requests.exceptions.HTTPError("Not found.")
+
         with self.assertRaises(requests.exceptions.HTTPError):
             menus.fetch_menus_data()
 
@@ -180,24 +180,28 @@ class TestConstructMenusUrl(unittest.TestCase):
         url = construct_menus_url(2, 3)
         expected_url = ('https://backend-challenge-summer-2018'
                         '.herokuapp.com/challenges.json?page=2&id=3')
+
         self.assertEqual(url, expected_url)
 
     def test_no_args_provided(self):
         url = construct_menus_url()
         expected_url = ('https://backend-challenge-summer-2018'
                         '.herokuapp.com/challenges.json?page=1&id=1')
+
         self.assertEqual(url, expected_url)
 
     def test_page_arg_provided_only(self):
         url = construct_menus_url(page=1)
         expected_url = ('https://backend-challenge-summer-2018'
                         '.herokuapp.com/challenges.json?page=1&id=1')
+
         self.assertEqual(url, expected_url)
 
     def test_id_arg_provided_only(self):
         url = construct_menus_url(problem_id=1)
         expected_url = ('https://backend-challenge-summer-2018'
                         '.herokuapp.com/challenges.json?page=1&id=1')
+
         self.assertEqual(url, expected_url)
 
     def test_invalid_page(self):
