@@ -12,11 +12,6 @@ I have produced two versions of this project. The first is a `Python` program th
 
 As I made the first program very modular, I was able to ***port the first program*** into a web application ([Web Application Version](#web-application-version)). The web application is hosted on Heroku and S3.
 
-**To access an web application online demo:**
-- Full website: [http://menu-validator-frontend.s3-website-us-east-1.amazonaws.com](http://menu-validator-frontend.s3-website-us-east-1.amazonaws.com)
-
-- Backend API: [https://menu-validator-backend.herokuapp.com/fetch-menus?problem-id=2](https://menu-validator-backend.herokuapp.com/fetch-menus?problem-id=2)
-
 Both project versions have been outlined below. I have documented how to install, test and lint the programs locally.
 
 ### Application Specific Design (Menus Validation)
@@ -144,11 +139,7 @@ This includes the frontend app, backend app (which contains the cli project vers
 
 ### Running the Application
 
-**The web application demo can be accessed via [http://menu-validator-frontend.s3-website-us-east-1.amazonaws.com](http://menu-validator-frontend.s3-website-us-east-1.amazonaws.com).**
-
-If you are also interested about the backend `GET` endpoint, please access this link: [https://menu-validator-backend.herokuapp.com/fetch-menus?problem-id=2](https://menu-validator-backend.herokuapp.com/fetch-menus?problem-id=2) where you can change the problem by changing the `problem-id` query parameter.
-
-However, if you would like to run the local backend application (`django`) **and** local frontend application (`react`), **please read on**.
+To run the local backend application (`django`) **and** local frontend application (`react`), **please read on**.
 
 ##### Local Backend Application (django)
 Open up a fresh terminal and locate yourself inside the root of `Shopify-Software-Engineering-Challenge/` `git` repository if not done already. Ensure you have **activated** your virtual environment (see [Common Installation and Setup](#common-installation-and-setup)).
@@ -178,8 +169,6 @@ cd MenuValidator/frontendapp/
 npm start
 ```
 **Note:** Ensure port 3000 is available and that you have the node packages installed (`npm install`).
-
-**Note:** If you are running the local backend application and would like this frontend application to communicate with the local version rather than  [menu-validator-frontend.s3-website-us-east-1.amazonaws.com]( menu-validator-frontend.s3-website-us-east-1.amazonaws.com), please  do this:
 
 From the root of the `git` repository, access `MenuValidator/frontendapp/src/actions/ProblemSender.js` and modify the `url` constant to be:
 ```
@@ -224,4 +213,3 @@ flake8 --exclude=*/frontendapp/*
 - [Github](https://github.com/)
 - [Travis CI](https://travis-ci.org/)
 - [Heroku](https://www.heroku.com/)
-- [S3](https://aws.amazon.com/s3/)
